@@ -2,7 +2,7 @@
 import React, { useRef, useEffect, useState, RefCallback, useCallback } from "react";
 import dynamic from 'next/dynamic';
 import { motion, useAnimation, useViewportScroll } from 'framer-motion';
-import '../main/main.css'
+import './main.css'
 import "react-nice-scroll/dist/styles.css";
 import EmblaCarousel from '../carousel/newCarouse'
 // import HorizontalGallery from '../carousel/HorizontalSection'
@@ -268,7 +268,7 @@ const App: React.FC = () => {
               height: "100vh",
             }}
           >
-            <Footer />
+            {/* <Footer /> */}
           </section>
    
       </div>
