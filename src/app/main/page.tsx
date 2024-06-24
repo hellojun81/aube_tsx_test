@@ -202,11 +202,11 @@ const App: React.FC = () => {
                 </div>
               </div>
             </div> */}
-            <SequenceSection
+            {/* <SequenceSection
               end="80%"
               imagesPath={imagesPath}
               imagesCount={30}
-              imagesType="jpg" />
+              imagesType="jpg" /> */}
           </section>
 
           {/* </ScrollContainer> */}
