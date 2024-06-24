@@ -207,8 +207,8 @@ const App: React.FC = () => {
               end="80%"
               imagesPath={imagesPath}
               imagesCount={30}
-              imagesType="jpg" /> */}
-          </section>*/}
+              imagesType="jpg" />
+          </section>
 
           {/* </ScrollContainer> */}
           <section
