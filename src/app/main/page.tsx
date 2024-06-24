@@ -268,7 +268,7 @@ const App: React.FC = () => {
 
             }}
           >
-            <Footer />
+            {/* <Footer /> */}
           </section>
    
       </div>
