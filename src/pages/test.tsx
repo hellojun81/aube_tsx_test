@@ -230,7 +230,7 @@ const App: React.FC = () => {
 
           </section>
 
-        {Carousel.map((link, index) => (
+        {/* {Carousel.map((link, index) => (
             <section
               // id={link.id}
               // className={floorpadding}
@@ -249,7 +249,7 @@ const App: React.FC = () => {
                 key={index}
               />
             </section>
-          ))} 
+          ))}  */}
 
        
  
