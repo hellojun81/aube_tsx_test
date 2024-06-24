@@ -51,86 +51,86 @@ const App: React.FC = () => {
 
   useEffect(() => {
 
-    setIsClient(true); // 클라이언트 측에서만 true로 설정
-    const div = divRef.current as HTMLDivElement;
-    const elements = document.querySelectorAll('.ns-container');
+    // setIsClient(true); // 클라이언트 측에서만 true로 설정
+    // const div = divRef.current as HTMLDivElement;
+    // const elements = document.querySelectorAll('.ns-container');
 
-    elements.forEach(element => {
-      (element as HTMLElement).style.overflow = 'inital';
-    });
-    const windowHeight = window.innerHeight;        // 윈도우의 높이와 너비를 가져옵니다.
-    const windowWidth = window.innerWidth;          // div 요소의 높이와 너비를 가져옵니다.
+    // elements.forEach(element => {
+    //   (element as HTMLElement).style.overflow = 'inital';
+    // });
+    // const windowHeight = window.innerHeight;        // 윈도우의 높이와 너비를 가져옵니다.
+    // const windowWidth = window.innerWidth;          // div 요소의 높이와 너비를 가져옵니다.
 
-    if (windowHeight < windowWidth) {
-      setscreenMode('width')
-      setfloorpadding('mainsection2')
-      setfirstpage('firstpage2')
-      setimagesPath('/images/jpg_width')
-    }
+    // if (windowHeight < windowWidth) {
+    //   setscreenMode('width')
+    //   setfloorpadding('mainsection2')
+    //   setfirstpage('firstpage2')
+    //   setimagesPath('/images/jpg_width')
+    // }
 
-    console.log({ titleRefs: titleRefs.current })
-    let index = 0;
+    // console.log({ titleRefs: titleRefs.current })
+    // let index = 0;
 
 
 
-    titleRefs.current.forEach(ref => {
-      console.log('titleRefs123')
-      index++;
+    // titleRefs.current.forEach(ref => {
+    //   console.log('titleRefs123')
+    //   index++;
 
-      if (ref) {
-        const parent = ref.parentElement as HTMLElement | null;
-        if (parent) {
-          const parentHeight = parent.clientHeight;
-          const parentWidth = parent.clientWidth;
-          const textHeight = ref.clientHeight;
-          let checkindex = index % 2
-          let leftposition
-          ref.style.position = 'absolute';
-          ref.style.top = `${(parentHeight - textHeight) / 2}px`;
-          ref.style.left = `${leftposition}px`;
-          let childWidth = titleRefs.current[0]?.clientWidth
-          console.log('parent', parent)
-          if (childWidth) {
-            leftposition = (parentWidth - childWidth) / 2
-            if (index !== 5) {
-              if (checkindex == 1) {
-                ref.style.left = `${leftposition}px`;
-              } else {
-                ref.style.right = `${leftposition}px`;
-              }
-            }
-          }
+    //   if (ref) {
+    //     const parent = ref.parentElement as HTMLElement | null;
+    //     if (parent) {
+    //       const parentHeight = parent.clientHeight;
+    //       const parentWidth = parent.clientWidth;
+    //       const textHeight = ref.clientHeight;
+    //       let checkindex = index % 2
+    //       let leftposition
+    //       ref.style.position = 'absolute';
+    //       ref.style.top = `${(parentHeight - textHeight) / 2}px`;
+    //       ref.style.left = `${leftposition}px`;
+    //       let childWidth = titleRefs.current[0]?.clientWidth
+    //       console.log('parent', parent)
+    //       if (childWidth) {
+    //         leftposition = (parentWidth - childWidth) / 2
+    //         if (index !== 5) {
+    //           if (checkindex == 1) {
+    //             ref.style.left = `${leftposition}px`;
+    //           } else {
+    //             ref.style.right = `${leftposition}px`;
+    //           }
+    //         }
+    //       }
 
-        }
-      }
-    });
-    const updateRotation = () => {
-      const scrollValue = scrollY.get();
-      if (scrollValue === 0) {
-        // 스크롤이 원점으로 돌아왔을 때 초기 상태로 되돌리기
-        controls1.start({ rotate: -45, transition: { duration: 0.5 } });
-        controls2.start({ rotate: 45, transition: { duration: 0.5 } });
-        controls3.start({ rotate: 45, transition: { duration: 0.5 } });
-        controls4.start({ rotate: -45, transition: { duration: 0.5 } });
-      } else {
-        controls1.start({
-          rotate: 45,
-          transition: { duration: 2.5 }
-        });
-        controls2.start({
-          rotate: -45,
-          transition: { duration: 2.5 }
-        });
-        controls3.start({
-          rotate: -45,
-          transition: { duration: 2.5 }
-        });
-        controls4.start({
-          rotate: 45,
-          transition: { duration: 2.5 }
-        });
-      }
-    };
+    //     }
+    //   }
+    // });
+    // const updateRotation = () => {
+    //   const scrollValue = scrollY.get();
+    //   if (scrollValue === 0) {
+    //     // 스크롤이 원점으로 돌아왔을 때 초기 상태로 되돌리기
+    //     controls1.start({ rotate: -45, transition: { duration: 0.5 } });
+    //     controls2.start({ rotate: 45, transition: { duration: 0.5 } });
+    //     controls3.start({ rotate: 45, transition: { duration: 0.5 } });
+    //     controls4.start({ rotate: -45, transition: { duration: 0.5 } });
+    //   } else {
+    //     controls1.start({
+    //       rotate: 45,
+    //       transition: { duration: 2.5 }
+    //     });
+    //     controls2.start({
+    //       rotate: -45,
+    //       transition: { duration: 2.5 }
+    //     });
+    //     controls3.start({
+    //       rotate: -45,
+    //       transition: { duration: 2.5 }
+    //     });
+    //     controls4.start({
+    //       rotate: 45,
+    //       transition: { duration: 2.5 }
+    //     });
+    //   }
+    // };
 
     if (isClient) {
       // const unsubscribeScroll = scrollY.onChange(updateRotation);
