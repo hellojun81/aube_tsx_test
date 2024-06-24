@@ -16,9 +16,9 @@ import { ScrollContainer } from "react-nice-scroll"
 const SequenceSection = dynamic(() => import('react-nice-scroll').then(mod => mod.SequenceSection), { ssr: false });
 
 const App: React.FC = () => {
-  const scrolloptions = {
-    speed: 0.5, // 스크롤 속도를 조절하는 옵션 (기본값: 1)
-  };
+  // const scrolloptions = {
+  //   speed: 0.5, // 스크롤 속도를 조절하는 옵션 (기본값: 1)
+  // };
   const [isClient, setIsClient] = useState(false);
   const controls1 = useAnimation();
   const controls2 = useAnimation();
@@ -133,12 +133,12 @@ const App: React.FC = () => {
     };
 
     if (isClient) {
-      const unsubscribeScroll = scrollY.onChange(updateRotation);
-      return () => {
-        unsubscribeScroll();
-      };
+      // const unsubscribeScroll = scrollY.onChange(updateRotation);
+      // return () => {
+      //   unsubscribeScroll();
+      // };
     }
-  }, [controls1, controls2, controls3, controls4, scrollY, isClient]);
+  }, [controls1, controls2, controls3, controls4,  isClient]);
 
   if (!isClient) {
     // 서버 측에서는 아무것도 렌더링하지 않음
@@ -216,7 +216,7 @@ const App: React.FC = () => {
             id='floor0'
             className={floorpadding}
             style={{
-              height: "580vh",
+              height: "80vh",
               // position: 'relative'
             }}
           >
@@ -232,7 +232,7 @@ const App: React.FC = () => {
 
           </section>
 
-          {/* {Carousel.map((link, index) => (
+          {Carousel.map((link, index) => (
             <section
               // id={link.id}
               // className={floorpadding}
@@ -251,7 +251,7 @@ const App: React.FC = () => {
                 key={index}
               />
             </section>
-          ))} */}
+          ))}
 
           <section
             id='Contact'
