@@ -2,7 +2,7 @@
 import React, { useRef, useEffect, useState, RefCallback, useCallback } from "react";
 import dynamic from 'next/dynamic';
 import { motion, useAnimation, useViewportScroll } from 'framer-motion';
-import '../app/main/main.css'
+// import '../app/main/main.css'
 // import "react-nice-scroll/dist/styles.css";
 import EmblaCarousel from '../app/carousel/newCarouse'
 // import HorizontalGallery from '../carousel/HorizontalSection'
