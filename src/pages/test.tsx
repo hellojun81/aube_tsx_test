@@ -1,6 +1,6 @@
 'use client'
 import React, { useRef, useEffect, useState, RefCallback, useCallback } from "react";
-import dynamic from 'next/dynamic';
+// import dynamic from 'next/dynamic';
 import { motion, useAnimation, useViewportScroll } from 'framer-motion';
 // import '../app/main/main.css'
 // import "react-nice-scroll/dist/styles.css";
@@ -11,7 +11,7 @@ import Footer from '../app/components/footer'
 import Naverbar from '../app/components/Navbar'
 import { ScrollContainer } from "react-nice-scroll"
 // import styles from './ScrollIcon.module.scss';
-const SequenceSection = dynamic(() => import('react-nice-scroll').then(mod => mod.SequenceSection), { ssr: false });
+// const SequenceSection = dynamic(() => import('react-nice-scroll').then(mod => mod.SequenceSection), { ssr: false });
 
 const App: React.FC = () => {
   const scrolloptions = {
@@ -215,7 +215,7 @@ const App: React.FC = () => {
             id='floor0'
             className={floorpadding}
             style={{
-              height: "180vh",
+              height: "800px",
               // position: 'relative'
             }}
           >
@@ -234,7 +234,7 @@ const App: React.FC = () => {
             id='floor0'
             className={floorpadding}
             style={{
-              height: "180vh",
+              height: "800px",
               // position: 'relative'
             }}
           >
