@@ -215,7 +215,7 @@ const App: React.FC = () => {
             id='floor0'
             className={floorpadding}
             style={{
-              height: "800hv",
+              height: "180vh",
               // position: 'relative'
             }}
           >
@@ -234,7 +234,7 @@ const App: React.FC = () => {
             id='floor0'
             className={floorpadding}
             style={{
-              height: "800hv",
+              height: "180vh",
               // position: 'relative'
             }}
           >
