@@ -40,11 +40,11 @@ const App: React.FC = () => {
   ];
   const Carousel = [
     { floor: 1, loop: 7, classname: floorpadding, id: '1floor' },
-    { floor: 2, loop: 7, classname: floorpadding, id: '2floor' },
-    { floor: 3, loop: 7, classname: floorpadding, id: '3floor' },
-    { floor: 4, loop: 3, classname: floorpadding, id: 'Other' },
-    { floor: 5, loop: 3, classname: floorpadding, id: 'Stairs' },
-    { floor: 6, loop: 3, classname: floorpadding, id: 'Outside' },
+    // { floor: 2, loop: 7, classname: floorpadding, id: '2floor' },
+    // { floor: 3, loop: 7, classname: floorpadding, id: '3floor' },
+    // { floor: 4, loop: 3, classname: floorpadding, id: 'Other' },
+    // { floor: 5, loop: 3, classname: floorpadding, id: 'Stairs' },
+    // { floor: 6, loop: 3, classname: floorpadding, id: 'Outside' },
   ]
 
   // useEffect(() => {
@@ -214,7 +214,7 @@ const App: React.FC = () => {
             id='floor0'
             className={floorpadding}
             style={{
-              height: "80vh",
+              height: "780vh",
               // position: 'relative'
             }}
           >
@@ -230,7 +230,7 @@ const App: React.FC = () => {
 
           </section>
 
-          {Carousel.map((link, index) => (
+        {Carousel.map((link, index) => (
             <section
               // id={link.id}
               // className={floorpadding}
@@ -249,7 +249,7 @@ const App: React.FC = () => {
                 key={index}
               />
             </section>
-          ))}
+          ))} 
 
        
  
