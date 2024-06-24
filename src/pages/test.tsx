@@ -151,7 +151,7 @@ const App: React.FC = () => {
   return (
     <>
       <div>
-        <Naverbar />
+        {/* <Naverbar /> */}
         {/* <ScrollContainer > */}
           <></>
           <section
@@ -251,25 +251,8 @@ const App: React.FC = () => {
             </section>
           ))}
 
-          <section
-            id='Contact'
-            style={{
-              height: "20vh",
-              marginBottom:"100px"
-            }}
-            className={floorpadding}
-          >
-            <div><h1>Contact US</h1></div>
-            <Email />
-          </section>
-
-          <section
-            style={{
-              height: "100vh",
-            }}
-          >
-            {/* <Footer /> */}
-          </section>
+       
+ 
    
       </div>
     </>
