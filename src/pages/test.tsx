@@ -216,7 +216,7 @@ const App: React.FC = () => {
             id='floor0'
             className={floorpadding}
             style={{
-              height: "80vh",
+              height: "580vh",
               // position: 'relative'
             }}
           >
@@ -232,7 +232,7 @@ const App: React.FC = () => {
 
           </section>
 
-          {Carousel.map((link, index) => (
+          {/* {Carousel.map((link, index) => (
             <section
               // id={link.id}
               // className={floorpadding}
@@ -251,7 +251,7 @@ const App: React.FC = () => {
                 key={index}
               />
             </section>
-          ))}
+          ))} */}
 
           <section
             id='Contact'
