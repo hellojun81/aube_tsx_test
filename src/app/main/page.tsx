@@ -152,7 +152,7 @@ const App: React.FC = () => {
     <>
       <div>
         <Naverbar />
-        <ScrollContainer >
+        {/* <ScrollContainer > */}
           <></>
           <section
             id='home'
@@ -209,7 +209,7 @@ const App: React.FC = () => {
               imagesType="jpg" />
           </section>
 
-          </ScrollContainer>
+          {/* </ScrollContainer> */}
           <section
             id='floor0'
             className={floorpadding}
