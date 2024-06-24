@@ -168,7 +168,7 @@ const App: React.FC = () => {
           >
 
 
-            <div className="titleMain" >
+            {/* <div className="titleMain" >
               {motionInfo.map((link, index) => (
                 <div className={`${link.name} ${link.name1}`} key={index}>
                   <motion.div
@@ -201,7 +201,7 @@ const App: React.FC = () => {
 
                 </div>
               </div>
-            </div>
+            </div> */}
             <SequenceSection
               end="80%"
               imagesPath={imagesPath}
