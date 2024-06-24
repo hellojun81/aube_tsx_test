@@ -154,7 +154,8 @@ const App: React.FC = () => {
         {/* <Naverbar /> */}
         {/* <ScrollContainer > */}
           <></>
-          <section
+       
+            {/*    <section
             id='home'
             className={firstpage}
             style={{
@@ -207,7 +208,7 @@ const App: React.FC = () => {
               imagesPath={imagesPath}
               imagesCount={30}
               imagesType="jpg" /> */}
-          </section>
+          </section>*/}
 
           {/* </ScrollContainer> */}
           <section
