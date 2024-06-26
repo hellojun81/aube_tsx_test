@@ -41,27 +41,17 @@ const Home: React.FC<PropType> = (props) => {
         if (emblaApi) emblaApi.scrollPrev();
     }, [emblaApi]);
     const countFiles=''
-    const [fileCount, setFileCount] = useState(0);
+    const [FileList, setFileList] = useState(0);
     const [error, setError] = useState('');
 
     useEffect(() => {
-        // API를 호출할 폴더 경로
-        const folderPath = `./${floor}floor/${screenMode}/`; // 원하는 경로로 변경 가능
-    
-        fetch(`/api/countFiles?folder=${encodeURIComponent(folderPath)}`)
+        fetch('/fileList.json')
           .then(response => response.json())
-          .then(data => {
-            if (data.error) {
-              setError(data.error);
-            } else {
-              setFileCount(data.fileCount);
-            }
-          })
-          .catch(err => {
-            setError('Error fetching file count.');
-          });
-      }, [floor, screenMode]); // 빈 배열을 전달하여 컴포넌트 마운트 시 1회 호출
-    console.log('fileCount',fileCount)
+          .then(data => setFileList(data))
+          .catch(error => console.error('Error loading the file list:', error));
+      }, []);
+    
+    console.log('FileList',FileList)
 
     const scrollToNext = useCallback(() => {
         if (emblaApi) emblaApi.scrollNext();
@@ -98,7 +88,7 @@ const Home: React.FC<PropType> = (props) => {
     // 루프를 사용하여 데이터 추가
     // console.log('screenMode',screenMode)
     
-    for (let i = 1; i <= fileCount; i++) {
+    for (let i = 1; i <= loop; i++) {
         newLinks.push({ path: `./${floor}floor/${screenMode}/${i}.jpg` });
     }
     const renderFloorInfo = () => {
