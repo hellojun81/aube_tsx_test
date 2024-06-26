@@ -44,7 +44,6 @@ const Home: React.FC<PropType> = (props) => {
     const [FileList, setFileList] = useState(0);
     const [error, setError] = useState('');
     const link = `public/${floor}floor/${screenMode}`;
-    console.log(link);
     useEffect(() => {
         fetch('/fileList.json')
             .then(response => response.json())
@@ -52,7 +51,7 @@ const Home: React.FC<PropType> = (props) => {
             .catch(error => console.error('Error loading the file list:', error));
     }, []);
 
-    console.log('FileList', FileList)
+    // console.log('FileList', FileList[0])
 
     const scrollToNext = useCallback(() => {
         if (emblaApi) emblaApi.scrollNext();
@@ -88,9 +87,13 @@ const Home: React.FC<PropType> = (props) => {
     let newLinks: ImageLink[] = [];
 
 
-    for (let i = 1; i <= loop; i++) {
-        newLinks.push({ path: `./${floor}floor/${screenMode}/${i}.jpg` });
-    }
+    // for (let i = 1; i <= loop; i++) {
+    //     newLinks.push({ path: `./${floor}floor/${screenMode}/${i}.jpg` });
+    // }
+    const replaceWord = (text: string, search: string, replacement: string): string => {
+        return text.replace(search, replacement);
+      };
+    console.log({newLink:newLinks,fileList:FileList})
     const renderFloorInfo = () => {
         switch (floor) {
             case 10:
@@ -142,7 +145,7 @@ const Home: React.FC<PropType> = (props) => {
         }
     };
 
-
+// newLinks=FileList
 
     return (
         <>
@@ -169,10 +172,10 @@ const Home: React.FC<PropType> = (props) => {
 
                 <div className="embla" ref={emblaRef} onClick={handleMouseClick}>
                     <div className="embla__container">
-                        {newLinks.map((link, index) => (
+                        {FileList.map((link, index) => (
                             <div className="embla__slide" key={index}>
                                 <img
-                                    src={link.path}
+                                    src={replaceWord(link, 'public', '.')}
                                     className={`image-container ${cursorClass}`}
                                     onMouseMove={handleMouseMove}
                                     style={{
