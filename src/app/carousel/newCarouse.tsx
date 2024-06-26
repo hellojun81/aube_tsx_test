@@ -41,7 +41,12 @@ const Home: React.FC<PropType> = (props) => {
         if (emblaApi) emblaApi.scrollPrev();
     }, [emblaApi]);
     const countFiles = ''
-    const [FileList, setFileList] = useState(0);
+    // const [FileList, setFileList] = useState(0);
+    const [FileList, setFileList] = useState<string[]>([
+        'public/images/photo1.jpg',
+        'public/images/photo2.jpg',
+        'public/images/photo3.jpg',
+      ]);
     const [error, setError] = useState('');
     const link = `public/${floor}floor/${screenMode}`;
     useEffect(() => {
