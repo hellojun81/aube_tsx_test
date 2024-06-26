@@ -40,18 +40,19 @@ const Home: React.FC<PropType> = (props) => {
     const scrollToPrevious = useCallback(() => {
         if (emblaApi) emblaApi.scrollPrev();
     }, [emblaApi]);
-    const countFiles=''
+    const countFiles = ''
     const [FileList, setFileList] = useState(0);
     const [error, setError] = useState('');
-
+    const link = `public/${floor}floor/${screenMode}`;
+    console.log(link);
     useEffect(() => {
         fetch('/fileList.json')
-          .then(response => response.json())
-          .then(data => setFileList(data))
-          .catch(error => console.error('Error loading the file list:', error));
-      }, []);
-    
-    console.log('FileList',FileList)
+            .then(response => response.json())
+            .then(data => setFileList(data[link]))
+            .catch(error => console.error('Error loading the file list:', error));
+    }, []);
+
+    console.log('FileList', FileList)
 
     const scrollToNext = useCallback(() => {
         if (emblaApi) emblaApi.scrollNext();
@@ -61,7 +62,7 @@ const Home: React.FC<PropType> = (props) => {
         nextBtnDisabled,
         onPrevButtonClick,
         onNextButtonClick
-      } = usePrevNextButtons(emblaApi)
+    } = usePrevNextButtons(emblaApi)
     const handleMouseClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
         const containerWidth = event.currentTarget.offsetWidth;
         const mouseX = event.clientX - event.currentTarget.getBoundingClientRect().left;
@@ -85,9 +86,8 @@ const Home: React.FC<PropType> = (props) => {
         }
     };
     let newLinks: ImageLink[] = [];
-    // 루프를 사용하여 데이터 추가
-    // console.log('screenMode',screenMode)
-    
+
+
     for (let i = 1; i <= loop; i++) {
         newLinks.push({ path: `./${floor}floor/${screenMode}/${i}.jpg` });
     }
@@ -146,9 +146,9 @@ const Home: React.FC<PropType> = (props) => {
 
     return (
         <>
-           
 
-{/* <img src='./1floor/height/1.jpg'/> */}
+
+            {/* <img src='./1floor/height/1.jpg'/> */}
 
             <div className={`${props.classname}`} id={props.id}>
                 <div>
@@ -156,14 +156,14 @@ const Home: React.FC<PropType> = (props) => {
                     {renderFloorInfo()}
                 </div>
                 {screenMode == 'height' ? (
-                <div className="button_container">
-                    <div className="button_left"> <PrevButton onClick={onPrevButtonClick} disabled={prevBtnDisabled} /></div>
+                    <div className="button_container">
+                        <div className="button_left"> <PrevButton onClick={onPrevButtonClick} disabled={prevBtnDisabled} /></div>
+                        <div className="button_center"><SelectedSnapDisplay selectedSnap={selectedSnap} snapCount={snapCount} /></div>
+                        <div className="button_right"> <NextButton onClick={onNextButtonClick} disabled={nextBtnDisabled} /></div>
+                    </div>
+                ) :
                     <div className="button_center"><SelectedSnapDisplay selectedSnap={selectedSnap} snapCount={snapCount} /></div>
-                    <div className="button_right"> <NextButton onClick={onNextButtonClick} disabled={nextBtnDisabled} /></div>
-                </div>
-            ) : 
-            <div className="button_center"><SelectedSnapDisplay selectedSnap={selectedSnap} snapCount={snapCount} /></div>
-            }
+                }
 
 
 

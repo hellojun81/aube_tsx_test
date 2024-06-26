@@ -3,7 +3,13 @@ import path from 'path';
 
 const directories = [
   'public/1floor/height',
+  'public/2floor/height',
+  'public/3floor/height',
+  'public/4floor/height',
+  'public/5floor/height',
+  'public/6floor/height',
   'public/1floor/width',
+  'public/2floor/width',
   'public/3floor/width',
   'public/4floor/width',
   'public/5floor/width',
