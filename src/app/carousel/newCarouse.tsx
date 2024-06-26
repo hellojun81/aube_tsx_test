@@ -40,6 +40,28 @@ const Home: React.FC<PropType> = (props) => {
     const scrollToPrevious = useCallback(() => {
         if (emblaApi) emblaApi.scrollPrev();
     }, [emblaApi]);
+    const countFiles=''
+    const [fileCount, setFileCount] = useState(0);
+    const [error, setError] = useState('');
+
+    useEffect(() => {
+        // API를 호출할 폴더 경로
+        const folderPath = `./${floor}floor/${screenMode}/`; // 원하는 경로로 변경 가능
+    
+        fetch(`/api/countFiles?folder=${encodeURIComponent(folderPath)}`)
+          .then(response => response.json())
+          .then(data => {
+            if (data.error) {
+              setError(data.error);
+            } else {
+              setFileCount(data.fileCount);
+            }
+          })
+          .catch(err => {
+            setError('Error fetching file count.');
+          });
+      }, [floor, screenMode]); // 빈 배열을 전달하여 컴포넌트 마운트 시 1회 호출
+    console.log('fileCount',fileCount)
 
     const scrollToNext = useCallback(() => {
         if (emblaApi) emblaApi.scrollNext();
@@ -75,7 +97,8 @@ const Home: React.FC<PropType> = (props) => {
     let newLinks: ImageLink[] = [];
     // 루프를 사용하여 데이터 추가
     // console.log('screenMode',screenMode)
-    for (let i = 1; i <= loop; i++) {
+    
+    for (let i = 1; i <= fileCount; i++) {
         newLinks.push({ path: `./${floor}floor/${screenMode}/${i}.jpg` });
     }
     const renderFloorInfo = () => {
@@ -135,7 +158,7 @@ const Home: React.FC<PropType> = (props) => {
         <>
            
 
-
+{/* <img src='./1floor/height/1.jpg'/> */}
 
             <div className={`${props.classname}`} id={props.id}>
                 <div>
@@ -148,7 +171,9 @@ const Home: React.FC<PropType> = (props) => {
                     <div className="button_center"><SelectedSnapDisplay selectedSnap={selectedSnap} snapCount={snapCount} /></div>
                     <div className="button_right"> <NextButton onClick={onNextButtonClick} disabled={nextBtnDisabled} /></div>
                 </div>
-            ) : null}
+            ) : 
+            <div className="button_center"><SelectedSnapDisplay selectedSnap={selectedSnap} snapCount={snapCount} /></div>
+            }
 
 
 
